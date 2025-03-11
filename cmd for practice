@@ -1,0 +1,8 @@
+first install python and uvicorn
+pip install fastapi pydantic uvicorn
+
+after that copy path of python file and cd paste path
+cd C:\python fastapi\api
+
+use uvicorn and reload
+uvicorn practice:app --reload
