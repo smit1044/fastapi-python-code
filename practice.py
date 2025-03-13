@@ -3,16 +3,15 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-# In-memory store for students (replace with a database in a real app)
 students = {}
 
 # Pydantic model for student data
 class Student(BaseModel):
     name: str
     age: int
-    year: str  # Example: "1st Year", "2nd Year", etc.
+    year: str  
 
-# Pydantic model for updating student data (allows partial updates)
+
 class UpdateStudent(BaseModel):
     name: str | None = None
     age: int | None = None
@@ -38,7 +37,6 @@ def update_student(student_id: int, student: UpdateStudent):
     if student_id not in students:
         return {"Error": "Student does not exist"}
 
-    # Update only the fields that are provided in the request
     if student.name != None:
         students[student_id].name = student.name
 
